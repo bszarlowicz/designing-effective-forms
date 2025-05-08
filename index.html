@@ -10,32 +10,51 @@
     <link href="style.css" rel="stylesheet">
     <style>
         .form-container {
-        max-height: 100vh;
-        overflow-y: auto;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+          max-height: 100vh;
+          overflow-y: auto;
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+
+        .header{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+        }
+
+        .header-title{
+          min-width: max-content;
+        }
+
+        .action-buttons{
+          text-align: end;   
         }
     </style>
   </head>
 
   <body>
     <div class="container form-container">
-        <div class="container mt-4 mb-4">
-            <button id="signInButton" class="btn btn-primary">Create Account / Sign In</button>
-            <button id="signOutButton" class="btn btn-secondary">Sign Out</button>
+        <div class="header">
+          <h1 class="header-title">Uzupełnij formularz</h1>
+          <div class="container mt-4 mb-4 action-buttons">
+            <button id="signInButton" class="btn btn-primary">Utwórz konto lub zaloguj się</button>
+            <button id="signOutButton" class="btn btn-secondary">Wyloguj się</button>
+          </div>
         </div>
-        <h1>Uzupełnij formularz</h1>
         <form id="form">
         <!-- Dane osobowe -->
         <fieldset class="mb-4">
             <legend>Dane osobowe</legend>
-            <div class="mb-3">
-            <label for="firstName" class="form-label">Imię</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Jan" required>
-            </div>
-            <div class="mb-3">
-            <label for="lastName" class="form-label">Nazwisko</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Kowalski" required>
+            <div class="row">
+              <div class="mb-3 col-md-6">
+                <label for="firstName" class="form-label">Imię</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Jan" required>
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="lastName" class="form-label">Nazwisko</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Kowalski" required>
+              </div>
             </div>
             <div class="mb-3">
             <label for="email" class="form-label">Email</label>
@@ -54,13 +73,15 @@
             <label for="street" class="form-label">Ulica</label>
             <input type="text" class="form-control" id="street" placeholder="Marszałkowska 10" required>
             </div>
-            <div class="mb-3">
-            <label for="city" class="form-label">Miasto</label>
-            <input type="text" class="form-control" id="city" placeholder="Warszawa" required>
-            </div>
-            <div class="mb-3">
-            <label for="zipCode" class="form-label">Kod pocztowy</label>
-            <input type="text" class="form-control" id="zipCode" placeholder="00-001" pattern="\d{2}-\d{3}" title="Format: 00-000" required>
+            <div class="row">
+              <div class="mb-3 col-md-9">
+              <label for="city" class="form-label">Miasto</label>
+              <input type="text" class="form-control" id="city" placeholder="Warszawa" required>
+              </div>
+              <div class="mb-3 col-md-3">
+              <label for="zipCode" class="form-label">Kod pocztowy</label>
+              <input type="text" class="form-control" id="zipCode" placeholder="00-001" pattern="\d{2}-\d{3}" title="Format: 00-000" required>
+              </div>
             </div>
             <div class="mb-3">
             <label for="country" class="form-label">Kraj</label>
@@ -90,13 +111,13 @@
                 <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="shippingMethod" id="dpd" value="DPD" required>
                 <label class="form-check-label" for="dpd">
-                    <i class="bi bi-truck"></i> DPD
+                  DPD
                 </label>
                 </div>
                 <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="shippingMethod" id="inpost" value="InPost">
                 <label class="form-check-label" for="inpost">
-                    <i class="bi bi-box-seam"></i> InPost
+                    InPost
                 </label>
                 </div>
             </div>
@@ -107,19 +128,19 @@
                 <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="paymentMethod" id="card" value="karta" required>
                 <label class="form-check-label" for="card">
-                    <i class="bi bi-credit-card"></i> Karta
+                  Karta
                 </label>
                 </div>
                 <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="paymentMethod" id="blik" value="blik">
                 <label class="form-check-label" for="blik">
-                    <i class="bi bi-phone"></i> BLIK
+                  BLIK
                 </label>
                 </div>
                 <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="paymentMethod" id="gateway" value="pośrednik">
                 <label class="form-check-label" for="gateway">
-                    <i class="bi bi-bank"></i> Pośrednik
+                  Pośrednik
                 </label>
                 </div>
             </div>
@@ -173,5 +194,4 @@
     <script src="script.js"></script>
     <script type="module" src="authentication.js" defer></script>
   </body>
-
 </html>
